@@ -2,12 +2,26 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const morgan = require("morgan");
 const User = require("./models/user");
-const bodyParser = require("body-parser");
 const path = require("path")
 const express = require("express");
 const cors = require("cors");
 
 const app = express();
+app.set('port', 9000);
+app.use(morgan("dev"));
+// bodyParser no longer needed so commented out
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(session({
+    key: "user_sid",
+    secret: "somerandonstuffs",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 600000
+    }
+}));
 
 const db = require("./app/models");
 db.sequelize.sync();
