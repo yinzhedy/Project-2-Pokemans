@@ -3,15 +3,16 @@ var bcrypt = require('bcrypt');
 
 const sequelize = new Sequelize('pokemans', 'root', 'password', {
     host: 'localhost',
-    port: 3306,
+    port: 9000,
     dialect: 'mysql',
+    password: '',
     pool: {
         max: 5,
         min: 0,
         acquire: 30000,
         idle: 10000
         },
-        operatorsAliases: false
+        operatorsAliases: 0
     });
 
 
@@ -43,11 +44,11 @@ User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-// create all defined tables in the specified database.
+// // create all defined tables in the specified database.
+sequelize.sync({ force: true })
+// sequelize.sync()
+//     .then(() => console.log('users table has been successfully created, if one does not exist'))
+//     .catch(error => console.log('This error occured', error));
 
-sequelize.sync()
-    .then(() => console.log('users table has been successfully created, if one does not exist'))
-    .catch(error => console.log('This error occured', error));
-
-// export User model for use in other files.
+// // export User model for use in other files.
 module.exports = User;
