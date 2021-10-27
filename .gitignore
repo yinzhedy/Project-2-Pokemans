@@ -3,4 +3,6 @@ build
 npm-debug.log
 .nyc
 .env
-.DS_Store
+.DS_Storenode_modules
+node_modules
+npm-debug.log
