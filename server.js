@@ -5,17 +5,17 @@ const exphbs = require('express-handlebars');
 var routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
-const sequelize = require('./config/connection');
+const sequelize = require('./config/configurations');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 9000;
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 // bodyParser no longer needed so commented out
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser());
-
+// app.use(cookieParser());
+const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: "somerandonstuffs",
