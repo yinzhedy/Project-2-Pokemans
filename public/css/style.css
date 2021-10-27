@@ -2,7 +2,9 @@
 
 body 
 {
-    background-color: #F0F0F0;
+    background-image: url("../img/homepage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .table, .table td, .table tr
 {
@@ -23,6 +25,7 @@ nav
 nav ul
 {
     list-style: none;
+    background-color: transparent;
 }
 
 nav ul li 
@@ -88,9 +91,9 @@ input[type="submit"]
     float: right;
     padding: 7px 20px;
     font-size: 1.06em;
-    background-color: #0796cf;
+    background-color: red;
     color: #fff;
-    border: 1px solid #0285b9;
+    border: 1px solid black;
     cursor: pointer;
     margin-top: 4px;
 }
@@ -99,8 +102,8 @@ input[type="text"]:focus , input[type="password"]:focus {
 }
 input[type="submit"]:hover
 {
-    background-color: #0fa3dd;
-    border-color: 1px solid #098ec2;
+    background-color: red;
+    border-color: 1px black;
 }
 .error
 {
@@ -157,5 +160,8 @@ p
 }
 .greeting span
 {
-    color: rgb(112, 172, 16);
+    color: burlywood
+}
+img {
+    width: 20px;
 }
