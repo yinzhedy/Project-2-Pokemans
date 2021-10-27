@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS pokemans;
+CREATE DATABASE crowdfund_db;
