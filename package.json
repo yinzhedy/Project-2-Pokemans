@@ -1,35 +1,37 @@
 {
-  "name": "nodejsmysqldemo",
+  "name": "login-register",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Simple Login/Register app in nodejs with mysql",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofianChouaib/Login-Register-Nodejs.git"
+  },
   "keywords": [
     "nodejs",
-    "express",
-    "sequelize",
+    "login",
+    "register",
     "mysql",
-    "rest",
-    "api"
+    "app"
   ],
-  "author": "",
+  "author": "Sofiane Chouaib",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SofianChouaib/Login-Register-Nodejs/issues"
+  },
+  "homepage": "https://github.com/SofianChouaib/Login-Register-Nodejs#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "connect-session-sequelize": "^7.1.2",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.4",
-    "express-session": "^1.17.2",
-    "morgan": "^1.10.0",
-    "mysql2": "^2.3.2",
-    "path": "^0.12.7",
-    "pg": "^8.7.1",
-    "sequelize": "^6.8.0"
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.0",
+    "util.promisify": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
