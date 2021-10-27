@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS pokemans;
+<<<<<<< HEAD
 CREATE DATABASE pokemans;
 
 USE pokemans;
@@ -35,3 +36,6 @@ CREATE TABLE cards (
 
 -- possible working schema for database tables, referencing for future use, and testing for api calls for card infor via pokemontcg key
 -- if table breaks then update collection database in models route
+=======
+CREATE DATABASE crowdfund_db;
+>>>>>>> 6633edbdd7e1003c3419d768df949621a225ecf2
