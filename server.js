@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 
 
@@ -13,8 +14,8 @@ const PORT = process.env.PORT || 3001;
 
 
 
-
-const hbs = exphbs.create({ helpers });
+// not using this yet
+// const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
