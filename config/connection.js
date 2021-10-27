@@ -3,7 +3,7 @@ const mysql = require('mysql');
 /**
  * Connection to the database.
  *  */
-const pool = mysql.createPool({
+const connection = mysql.createPool({
     connectionLimit: 100,
     host: 'localhost',
     user: 'root', // use your mysql username.
@@ -11,7 +11,7 @@ const pool = mysql.createPool({
     database: 'pokemans'
 });
 
-pool.getConnection((err, connection) => {
+connection.getConnection((err, connection) => {
     if(err) 
         console.error("Something went wrong connecting to the database ...");
     
@@ -20,6 +20,6 @@ pool.getConnection((err, connection) => {
     return;
 });
 
-pool.query = util.promisify(pool.query);
+connection.query = util.promisify(connection.query);
 
-module.exports = pool;
+module.exports = connection;

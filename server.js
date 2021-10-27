@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const pageRouter = require('./routes/pages');
+const routes = require('./routes/userRoutes');
 const app = express();
 
 // for body parser. to collect data that sent from the client.
@@ -28,7 +28,7 @@ app.use(session({
 
 
 // Routers
-app.use('/', pageRouter);
+app.use('/', routes);
 
 
 // Errors => page not found 404
