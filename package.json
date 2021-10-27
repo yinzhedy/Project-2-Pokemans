@@ -1,5 +1,5 @@
 {
-  "name": "login-register",
+  "name": "pokemans",
   "version": "1.0.0",
   "description": "pokemans app in nodejs with mysql",
   "main": "server.js",
@@ -26,5 +26,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": "14.17.6"
   }
 }

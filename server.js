@@ -3,7 +3,7 @@ const session = require('express-session');
 const path = require('path');
 const routes = require('./routes/userRoutes');
 const app = express();
-
+const PORT = process.env.PORT || 3001;
 // for body parser. to collect data that sent from the client.
 app.use(express.urlencoded( { extended : false}));
 
@@ -45,8 +45,10 @@ app.use((err, req, res, next) => {
 });
 
 // Setting up the server
-app.listen(9000, () => {
-    console.log('Server is running on port 9000...');
+app.listen(PORT, () => {
+    console.log('Server is running on port 3001...');
 });
+
+console.log()
 
 module.exports = app;
