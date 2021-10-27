@@ -4,7 +4,8 @@
   "description": "Simple Login/Register app in nodejs with mysql",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,16 +20,17 @@
   ],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    
-  },
+  "bugs": {},
   "homepage": "",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.2",
     "pug": "^3.0.2",
+    "sequelize": "^6.8.0",
     "server.js": "^1.0.0",
     "util.promisify": "^1.1.1"
   },
