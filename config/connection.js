@@ -1,25 +1,21 @@
-const util = require('util');
-const mysql = require('mysql');
-/**
- * Connection to the database.
- *  */
-const connection = mysql.createPool({
-    connectionLimit: 100,
-    host: 'localhost',
-    user: 'root', // use your mysql username.
-    password: 'MySqlPassword01516170!!?', // user your mysql password.
-    database: 'pokemans'
-});
+const Sequelize = require('sequelize');
+require('dotenv').config();
 
-connection.getConnection((err, connection) => {
-    if(err) 
-        console.error("Something went wrong connecting to the database ...");
-    
-    if(connection)
-        connection.release();
-    return;
-});
+let sequelize;
 
-connection.query = util.promisify(connection.query);
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: 'localhost',
+      dialect: 'mysql',
+      port: 3306
+    }
+  );
+}
 
-module.exports = connection;
+module.exports = sequelize;

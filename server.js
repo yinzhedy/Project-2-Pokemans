@@ -1,8 +1,15 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const routes = require('./routes/userRoutes');
+const routes = require('./controllers');
 const app = express();
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const PORT = process.env.PORT || 3001;
+
+
 
 // for body parser. to collect data that sent from the client.
 app.use(express.urlencoded( { extended : false}));
@@ -21,14 +28,15 @@ app.use(session({
     secret:'youtube_video',
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        maxAge: 60 * 1000 * 30
-    }
+    store: new SequelizeStore({
+        db: sequelize
+      }),
+    cookie: {}
 }));
 
 
 // Routers
-app.use('/', routes);
+app.use(routes);
 
 
 // Errors => page not found 404
@@ -45,8 +53,9 @@ app.use((err, req, res, next) => {
 });
 
 // Setting up the server
-app.listen(9000, () => {
-    console.log('Server is running on port 9000...');
-});
+
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
 
 module.exports = app;
