@@ -8,8 +8,6 @@ CREATE TABLE users (
 	PRIMARY KEY (id)
 );
 
--- DROP DATABASE IF EXISTS pokemans;
--- CREATE DATABASE pokemans;
 
 -- USE pokemans;
 
